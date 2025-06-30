@@ -1,0 +1,27 @@
+name: Test
+
+on:
+  pull_request:
+  push:
+    branches: [$default_branch]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Set up environment variables
+        run: echo 'PRIVATE_KEY="0000000000000000000000000000000000000000000000000000000000000000"' > .env
+
+      - name: Run tests
+        run: npx hardhat test
