@@ -19,6 +19,7 @@ contract Collateral is Initializable, OwnableUpgradeable, UUPSUpgradeable {
     event CollateralSlashed(address indexed account, uint256 amount);
     event CollateralWithdrawn(address indexed account, uint256 amount);
 
+    // solhint-disable-next-line no-empty-blocks
     function _authorizeUpgrade(address newImplementation) internal override onlyOwner {}
 
     function initialize(address initialOwner) public initializer {
