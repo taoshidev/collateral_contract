@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: UNLINCENSED
-pragma solidity ^0.8.30;
+pragma solidity 0.8.30;
 
-import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/access/Ownable2StepUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 
-contract Collateral is Initializable, OwnableUpgradeable, UUPSUpgradeable {
+contract Collateral is Initializable, Ownable2StepUpgradeable, UUPSUpgradeable {
     mapping(address => uint256) public collateralBalances;
     uint256 public slashedCollateral;
     uint256 public totalCollateral;
